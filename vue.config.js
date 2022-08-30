@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+	publicPath: '/image-viewer/',
 	transpileDependencies: true,
 	chainWebpack: config => {
 		config.module
