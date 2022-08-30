@@ -1,0 +1,15 @@
+@mixin newFont($family,$pathName,$weight, $style: normal) {
+    @font-face {
+        font-family: '#{$family}';
+        src: url('/public/fonts/#{$pathName}.woff2') format('woff2'), url('/public/fonts/#{$pathName}.woff') format('woff');
+        font-weight: #{$weight};
+        font-style: $style;
+        font-display: swap;
+    }
+}
+
+@function toRem($size) {
+    $remSize: $size / 12 * 1rem;
+
+    @return $remSize;
+}
