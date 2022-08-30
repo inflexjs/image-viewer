@@ -186,6 +186,9 @@ export default class Home extends Vue {
 			height: 100% !important;
 		}
 	}
+	.el-input {
+		font-size: 16px !important;
+	}
 	.el-upload {
 		&__tip {
 			text-align: center;
