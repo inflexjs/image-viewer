@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
+
 module.exports = defineConfig({
-	publicPath: '/image-viewer/',
 	transpileDependencies: true,
 	chainWebpack: config => {
 		config.module
@@ -34,11 +34,17 @@ module.exports = defineConfig({
 		appleMobileWebAppCapable: 'yes',
 		appleMobileWebAppStatusBarStyle: 'black',
 
-		// настройки манифеста
 		manifestOptions: {
 			display: 'standalone',
 			background_color: '#42B883',
+			start_url: '/',
 			manifestCrossorigin: 'use-credentials'
 		},
+
+		workboxPluginMode: 'InjectManifest',
+		workboxOptions: {
+			swSrc: 'src/registerServiceWorker.ts',
+			swDest: 'service-worker.js',
+		}
 	}
 })

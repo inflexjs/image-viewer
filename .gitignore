@@ -4,6 +4,7 @@
 /public/temp
 /storage/*.key
 /vendor
+/dist
 /project_data
 .env
 .env.backup

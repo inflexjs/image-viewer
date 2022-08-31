@@ -85,7 +85,7 @@ import {ImagesImagesGetter} from "@/store/modules/images/getters";
 import {Action, Getter} from "@/decorators";
 import {OptionsFieldsGetter, OptionsValueGetter} from "@/store/modules/options/getters";
 import {viewMode} from "@/store/modules/options/state";
-import {OptionsSetValueAction} from "@/store/modules/options/actions";
+import {getLocalStorageData, OptionsSetValueAction} from "@/store/modules/options/actions";
 
 @Component
 export default class Home extends Vue {
@@ -119,10 +119,6 @@ export default class Home extends Vue {
 		return URL.createObjectURL(file)
 	}
 	
-	chooseOptionValue(e: Event) {
-		console.log(e)
-	}
-	
 	get isImagesUploaded() {
 		return this.images.length
 	}
@@ -145,6 +141,13 @@ export default class Home extends Vue {
 				return 'contain'
 			case viewMode.NONE:
 				return 'none'
+		}
+	}
+	
+	mounted() {
+		const storage = getLocalStorageData('optionValue')
+		if (storage) {
+			this.setValue(storage)
 		}
 	}
 }
