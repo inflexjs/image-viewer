@@ -38,7 +38,7 @@ module.exports = defineConfig({
 		manifestOptions: {
 			display: 'standalone',
 			background_color: '#42B883',
-			start_url: `${process.env.BASE_URL}`,
+			start_url: 'https://inflexjs.github.io/image-viewer/',
 			manifestCrossorigin: 'use-credentials'
 		},
 
