@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
-	publicPath: '/image-viewer/',
+	publicPath: process.env.NODE_ENV === 'production' ? '/image-viewer/' : '',
 	transpileDependencies: true,
 	chainWebpack: config => {
 		config.module
@@ -30,20 +30,20 @@ module.exports = defineConfig({
 	},
 
 	pwa: {
+		name: 'image-viewer',
 		themeColor: '#4DBA87',
 		msTileColor: '#000000',
 		appleMobileWebAppCapable: 'yes',
 		appleMobileWebAppStatusBarStyle: 'black',
 
+		// настройки манифеста
 		manifestOptions: {
 			display: 'standalone',
 			background_color: '#42B883',
-			start_url: 'https://inflexjs.github.io/image-viewer/',
-			manifestCrossorigin: 'use-credentials'
-		},
-
-		workboxOptions: {
-			swDest: 'service-worker.js',
+			manifestCrossorigin: 'use-credentials',
+			start_url: '/',
+			scope: "/",
+			// ...другие настройки манифеста...
 		}
 	}
 })
