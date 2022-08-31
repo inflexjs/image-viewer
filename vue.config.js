@@ -41,7 +41,7 @@ module.exports = defineConfig({
 			display: 'standalone',
 			background_color: '#42B883',
 			manifestCrossorigin: 'use-credentials',
-			start_url: '/',
+			start_url: process.env.NODE_ENV === 'production' ? '/image-viewer/' : '/',
 			scope: "/",
 			// ...другие настройки манифеста...
 		}
