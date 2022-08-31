@@ -38,7 +38,7 @@ module.exports = defineConfig({
 		manifestOptions: {
 			display: 'standalone',
 			background_color: '#42B883',
-			start_url: '/',
+			start_url: `${process.env.BASE_URL}`,
 			manifestCrossorigin: 'use-credentials'
 		},
 
