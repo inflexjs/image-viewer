@@ -1,6 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
+	publicPath: '/image-viewer/',
 	transpileDependencies: true,
 	chainWebpack: config => {
 		config.module
@@ -41,9 +42,7 @@ module.exports = defineConfig({
 			manifestCrossorigin: 'use-credentials'
 		},
 
-		workboxPluginMode: 'InjectManifest',
 		workboxOptions: {
-			swSrc: 'src/registerServiceWorker.ts',
 			swDest: 'service-worker.js',
 		}
 	}
